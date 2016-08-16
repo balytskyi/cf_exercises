@@ -1,15 +1,21 @@
 <cfset rc.title = "Exercise 1" />
 
-<cfoutput>
-	#rc.errorMessage#
-</cfoutput>
-<br>
-<cfif rc.pivotIndex GT 0>
+<cfif len(rc.errorMessage) GT 0>
 	<cfoutput>
-		For the input array (#arrayToList(rc.array," ")#) "pivot" index is: #rc.pivotIndex#
+		#rc.errorMessage#
 	</cfoutput>
 <cfelse>
-	<cfoutput>
-		For the input array (#arrayToList(rc.array," ")#) "pivot" index is not found
-	</cfoutput>
+	<cfif rc.pivotIndex GT 0>
+		<cfoutput>
+			For the input array (#arrayToList(rc.array," ")#) "pivot" index is: #rc.pivotIndex#
+		</cfoutput>
+	<cfelse>
+		<cfoutput>
+			For the input array (#arrayToList(rc.array," ")#) "pivot" index is not found
+		</cfoutput>
+	</cfif>
 </cfif>
+
+<cfoutput>
+	<br><a href="#buildURL('exercise1')#">Back</a>
+</cfoutput>

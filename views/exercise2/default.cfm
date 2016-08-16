@@ -41,12 +41,16 @@
 
 <div id="errorContainer"></div>
 
+<cfoutput>
+	<a href="#buildURL('main')#">Back</a>
+</cfoutput>
+
 <script>
     (function($) {
         $('#submit').click( function(e) {
             e.preventDefault();
             $.post(
-                '/exercises/index.cfm?action=exercise2.getUserAddress',
+                '<cfoutput>#buildURL("exercise2.getUserAddress")#</cfoutput>',
                 {
                     userName: $('#userName').val(),
                     dob: $('#dob').val(),
@@ -56,20 +60,19 @@
                 )
                 .done( function(data) {
 					var user = $.parseJSON(data);
-					if (user["userName"].length > 0) {
-						$('#streetContainer').show();
-						$('#cityContainer').show();
+					$('#streetContainer').show();
+					$('#cityContainer').show();
 
-						$('#street').val(user["street"]);
-                    	$('#city').val(user["city"]);
-					} else {
-						$('#streetContainer').hide();
-						$('#cityContainer').hide();
-					}
+					$('#street').val(user["street"]);
+                   	$('#city').val(user["city"]);
 
+                   	$('#errorContainer').empty();
                 })
                 .fail( function() {
-                    $('<span>There was an error getting data.</span>').appendTo('#errorContainer');
+                	$('#streetContainer').hide();
+					$('#cityContainer').hide();
+
+                    $('#errorContainer').html('Cannot find address');
                 }
             );
         });

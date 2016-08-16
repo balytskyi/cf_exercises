@@ -1,10 +1,7 @@
 component extends="framework.one" {
 
 	variables.framework = {
-			unhandledPaths = '/tests',
-			unhandledExtensions = 'cfc'
+			unhandledPaths = '/tests'
 	};
-
-	this.datasource = "cfusers";
 
 }

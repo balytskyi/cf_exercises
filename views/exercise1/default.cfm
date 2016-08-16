@@ -6,7 +6,6 @@
 		<label>
 			Enter elements of array separated by spaces
 		</label>
-		<br>
 		<cftextarea name="inputArray" wrap="virtual" rows="5" cols="50" />
 	</div>
 
@@ -15,3 +14,7 @@
 	</div>
 
 </cfform>
+
+<cfoutput>
+	<a href="#buildURL('main')#">Back</a>
+</cfoutput>

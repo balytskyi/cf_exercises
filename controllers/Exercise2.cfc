@@ -13,8 +13,13 @@ component accessors="true" {
 	}
 
 	public void function getUserAddress(rc) {
-		rc.user = userService.get(form.userName, form.dob, Val(form.houseNum), Val(form.postCode));
-		variables.fw.renderData( 'json', SerializeJSON(rc.user));
+		var userWithAddress = userService.get(form.userName, form.dob, Val(form.houseNum), Val(form.postCode));
+		if (!IsNull(userWithAddress)) {
+			rc.user = userWithAddress;
+			variables.fw.renderData( 'json', SerializeJSON(rc.user));
+		} else {
+			variables.fw.renderData( 'json', SerializeJSON(StructNew()), 404);
+		}
 	}
 
 }
