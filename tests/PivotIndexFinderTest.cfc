@@ -1,7 +1,7 @@
 <cfcomponent extends="mxunit.framework.TestCase">
 
 	<cffunction name="beforeTests" returntype="void" access="public">
-		<cfset finder = createObject("component","cf_exercises.model.services.PivotIndexFinder")>
+		<cfset finder = createObject("component","appRoot.model.services.PivotIndexFinder")>
 	</cffunction>
 
 	<cffunction name="findPivotIndex_should_return_3" returntype="void" access="public">
