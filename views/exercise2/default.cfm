@@ -45,6 +45,22 @@
 	<a href="#buildURL('main')#">Back</a>
 </cfoutput>
 
+<div>
+	<p>Try to look for:</p>
+	<ul>
+		<li>Name: John Doe</li>
+		<li>DOB: 09/04/1988</li>
+		<li>House Number: 10</li>
+		<li>Post Code: 7900</li>
+	</ul>
+	<ul>
+		<li>Name: Sven Doe</li>
+		<li>DOB: 12/01/1980</li>
+		<li>House Number: 10</li>
+		<li>Post Code: 7903</li>
+	</ul>
+</div>
+
 <script>
     (function($) {
         $('#submit').click( function(e) {
